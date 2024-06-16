@@ -1,0 +1,25 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+double calculateSeries(double x, double precision) {
+    double sum = 0.0;
+    double term = 0.0;
+    int k = 1;
+
+    do {
+        term = pow(-1, k) / (sin(k * x) + 2 + pow(k, 2));
+        sum += term;
+        k++;
+    } while (abs(term) > precision);
+
+    return sum;
+}
+
+int main() {
+    double x = 1.5; 
+    double precision = 1e-6;
+    double result = calculateSeries(x, precision);
+   cout << "Сумма ряда для x = " << x << " с точностью " << precision << " равна: " << result << endl;
+    return 0;
+}
