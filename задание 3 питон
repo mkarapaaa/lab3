@@ -1,0 +1,15 @@
+def calculate_series(precision):
+    sum_value = 0
+    k = 1
+    term_value = 1 
+
+    while abs(term_value) > precision:
+        term_value = 2 / (2**(k-1)) + ((-1)**(k-1)) / (2 * 3**(k-1))
+        sum_value += term_value
+        k += 1
+
+    return sum_value
+
+precision = 1e-6
+result = calculate_series(precision)
+print(result)
